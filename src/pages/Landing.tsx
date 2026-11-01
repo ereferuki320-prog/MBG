@@ -9,7 +9,7 @@ export const Landing: React.FC = () => {
   const { settings, daysTogether, timeTogether } = useCouple();
   const { isPlaying, togglePlay, currentSong, currentTime, duration, seekTo, playNext, playPrev } = useMusic();
 
-  const formattedDate = new Date().toLocaleDateString('en-US', {
+  const formattedDate = new Date().toLocaleDateString('zh-CN', {
     month: 'long',
     day: 'numeric',
     year: 'numeric'
@@ -39,11 +39,11 @@ export const Landing: React.FC = () => {
           </span>
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-[#4A3B3E] leading-tight font-serif">
-            You are the <span className="italic font-normal text-[#DB2777]">stars</span> in my little sky.
+            你是<span className="italic font-normal text-[#DB2777]">星辰</span>，在我小小的天空里。
           </h1>
 
           <p className="text-xs sm:text-sm text-[#4A3B3E] opacity-80 leading-relaxed font-sans max-w-lg">
-            {settings.hero_subtitle || 'Counting every heartbeat, memory, and shared laughter in our quiet universe.'}
+            {settings.hero_subtitle || '细数我们安静宇宙里的每一次心跳、每一段回忆和每一次笑声。'}
           </p>
 
           <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3">
@@ -52,14 +52,14 @@ export const Landing: React.FC = () => {
               className="px-6 py-3 bg-[#DB2777] text-white rounded-full text-xs font-sans font-bold uppercase tracking-widest shadow-lg shadow-pink-200 hover:bg-[#be185d] hover:scale-105 transition-all inline-flex items-center space-x-2"
             >
               <Sparkles className="w-4 h-4" />
-              <span>Write a Note</span>
+              <span>写一张便签</span>
             </NavLink>
 
             <NavLink
               to="/timeline"
               className="px-6 py-3 bg-white text-[#4A3B3E] border border-[#FDE2E8] rounded-full text-xs font-sans font-bold uppercase tracking-widest hover:bg-[#FFF9FA] hover:scale-105 transition-all inline-flex items-center space-x-2"
             >
-              <span>Explore Timeline</span>
+              <span>探索时间线</span>
               <ArrowRight className="w-4 h-4 text-[#DB2777]" />
             </NavLink>
           </div>
@@ -110,7 +110,7 @@ export const Landing: React.FC = () => {
             </div>
           </div>
           <div className="p-2 text-center">
-            <p className="font-serif italic text-xs text-[#4A3B3E]">"Our Endless Memory"</p>
+            <p className="font-serif italic text-xs text-[#4A3B3E]">"我们无尽的回忆"</p>
           </div>
         </div>
       </section>
@@ -132,12 +132,12 @@ export const Landing: React.FC = () => {
               {daysTogether}
             </div>
             <div className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-[#4A3B3E] opacity-60">
-              Days Since Day One
+              相爱以来的天数
             </div>
           </div>
 
           <div className="text-center italic font-serif text-xs text-[#4A3B3E] opacity-80 pt-2 border-t border-[#FDE2E8]">
-            Relationship Started: {settings.relationship_start_date}
+            相爱起始日：{settings.relationship_start_date}
           </div>
         </div>
 
@@ -145,7 +145,7 @@ export const Landing: React.FC = () => {
         <div className="bg-white rounded-[24px] p-6 shadow-sm border border-[#FDE2E8] flex flex-col justify-between">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-xs font-sans font-bold uppercase tracking-[0.2em] opacity-60 text-[#4A3B3E]">
-              Time Counter
+              时间计数
             </h3>
             <Calendar className="w-4 h-4 text-[#DB2777]" />
           </div>
@@ -153,32 +153,32 @@ export const Landing: React.FC = () => {
           <div className="grid grid-cols-3 gap-2 py-2">
             <div className="bg-[#FFF9FA] p-2.5 rounded-xl border border-[#FDE2E8] text-center">
               <span className="block font-serif font-bold text-xl text-[#DB2777]">{timeTogether.years}</span>
-              <span className="text-[9px] font-sans font-bold uppercase text-[#4A3B3E] opacity-60">Years</span>
+              <span className="text-[9px] font-sans font-bold uppercase text-[#4A3B3E] opacity-60">年</span>
             </div>
             <div className="bg-[#FFF9FA] p-2.5 rounded-xl border border-[#FDE2E8] text-center">
               <span className="block font-serif font-bold text-xl text-[#DB2777]">{timeTogether.months}</span>
-              <span className="text-[9px] font-sans font-bold uppercase text-[#4A3B3E] opacity-60">Months</span>
+              <span className="text-[9px] font-sans font-bold uppercase text-[#4A3B3E] opacity-60">月</span>
             </div>
             <div className="bg-[#FFF9FA] p-2.5 rounded-xl border border-[#FDE2E8] text-center">
               <span className="block font-serif font-bold text-xl text-[#DB2777]">{timeTogether.days}</span>
-              <span className="text-[9px] font-sans font-bold uppercase text-[#4A3B3E] opacity-60">Days</span>
+              <span className="text-[9px] font-sans font-bold uppercase text-[#4A3B3E] opacity-60">天</span>
             </div>
             <div className="bg-[#FFF9FA] p-2.5 rounded-xl border border-[#FDE2E8] text-center">
               <span className="block font-serif font-bold text-xl text-[#DB2777]">{timeTogether.hours}</span>
-              <span className="text-[9px] font-sans font-bold uppercase text-[#4A3B3E] opacity-60">Hours</span>
+              <span className="text-[9px] font-sans font-bold uppercase text-[#4A3B3E] opacity-60">小时</span>
             </div>
             <div className="bg-[#FFF9FA] p-2.5 rounded-xl border border-[#FDE2E8] text-center">
               <span className="block font-serif font-bold text-xl text-[#DB2777]">{timeTogether.minutes}</span>
-              <span className="text-[9px] font-sans font-bold uppercase text-[#4A3B3E] opacity-60">Mins</span>
+              <span className="text-[9px] font-sans font-bold uppercase text-[#4A3B3E] opacity-60">分钟</span>
             </div>
             <div className="bg-[#FFF9FA] p-2.5 rounded-xl border border-[#FDE2E8] text-center">
               <span className="block font-serif font-bold text-xl text-[#DB2777]">{timeTogether.seconds}</span>
-              <span className="text-[9px] font-sans font-bold uppercase text-[#4A3B3E] opacity-60">Secs</span>
+              <span className="text-[9px] font-sans font-bold uppercase text-[#4A3B3E] opacity-60">秒</span>
             </div>
           </div>
 
           <div className="text-center text-[10px] font-sans font-bold uppercase tracking-widest text-[#DB2777]">
-            Every second is a sweet gift 💕
+            每一秒都是一份甜蜜的礼物 💕
           </div>
         </div>
 
@@ -195,7 +195,7 @@ export const Landing: React.FC = () => {
               {isPlaying && (
                 <span className="flex items-center space-x-1 px-2 py-0.5 rounded-full bg-pink-500/20 text-pink-300 text-[9px] font-bold tracking-wider uppercase animate-pulse">
                   <span className="w-1.5 h-1.5 rounded-full bg-pink-400" />
-                  <span>Playing</span>
+                  <span>播放中</span>
                 </span>
               )}
             </div>
@@ -291,14 +291,14 @@ export const Landing: React.FC = () => {
           {/* Controls Footer */}
           <div className="flex items-center justify-between pt-1">
             <span className="text-[10px] font-sans font-bold text-pink-200/60 uppercase tracking-widest hidden sm:inline">
-              Background Melody
+              背景旋律
             </span>
 
             <div className="flex items-center justify-between w-full sm:w-auto space-x-2">
               <button
                 onClick={playPrev}
                 className="p-1.5 rounded-full hover:bg-white/10 text-pink-200 hover:text-white transition-colors"
-                title="Lagu Sebelumnya"
+                title="上一首"
               >
                 <SkipBack className="w-4 h-4" />
               </button>
@@ -314,12 +314,12 @@ export const Landing: React.FC = () => {
                 {isPlaying ? (
                   <>
                     <Pause className="w-3.5 h-3.5 fill-current" />
-                    <span>Pause</span>
+                    <span>暂停</span>
                   </>
                 ) : (
                   <>
                     <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
-                    <span>Play</span>
+                    <span>播放</span>
                   </>
                 )}
               </button>
@@ -327,7 +327,7 @@ export const Landing: React.FC = () => {
               <button
                 onClick={playNext}
                 className="p-1.5 rounded-full hover:bg-white/10 text-pink-200 hover:text-white transition-colors"
-                title="Lagu Selanjutnya"
+                title="下一首"
               >
                 <SkipForward className="w-4 h-4" />
               </button>
@@ -346,8 +346,8 @@ export const Landing: React.FC = () => {
           <div className="w-10 h-10 rounded-full bg-[#FFE4E9] text-[#DB2777] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
             <Calendar className="w-5 h-5" />
           </div>
-          <h4 className="font-serif font-bold text-base text-[#4A3B3E]">Timeline</h4>
-          <p className="text-xs text-[#8C7A7D] mt-1 font-sans">Milestones, dates, and trips.</p>
+          <h4 className="font-serif font-bold text-base text-[#4A3B3E]">时间线</h4>
+          <p className="text-xs text-[#8C7A7D] mt-1 font-sans">里程碑、约会和旅行。</p>
         </NavLink>
 
         <NavLink
@@ -357,8 +357,8 @@ export const Landing: React.FC = () => {
           <div className="w-10 h-10 rounded-full bg-[#FFE4E9] text-[#DB2777] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
             <MessageCircle className="w-5 h-5" />
           </div>
-          <h4 className="font-serif font-bold text-base text-[#4A3B3E]">Love Notes</h4>
-          <p className="text-xs text-[#8C7A7D] mt-1 font-sans">Sticky letters & sweet messages.</p>
+          <h4 className="font-serif font-bold text-base text-[#4A3B3E]">爱的便签</h4>
+          <p className="text-xs text-[#8C7A7D] mt-1 font-sans">贴纸信件与甜蜜留言。</p>
         </NavLink>
 
         <NavLink
@@ -368,8 +368,8 @@ export const Landing: React.FC = () => {
           <div className="w-10 h-10 rounded-full bg-[#FFE4E9] text-[#DB2777] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
             <Sparkles className="w-5 h-5" />
           </div>
-          <h4 className="font-serif font-bold text-base text-[#4A3B3E]">Unfold Letter</h4>
-          <p className="text-xs text-[#8C7A7D] mt-1 font-sans">Envelope wax seal experience.</p>
+          <h4 className="font-serif font-bold text-base text-[#4A3B3E]">展开信件</h4>
+          <p className="text-xs text-[#8C7A7D] mt-1 font-sans">火漆封印信封体验。</p>
         </NavLink>
 
         <NavLink
@@ -379,8 +379,8 @@ export const Landing: React.FC = () => {
           <div className="w-10 h-10 rounded-full bg-[#FFE4E9] text-[#DB2777] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
             <Star className="w-5 h-5" />
           </div>
-          <h4 className="font-serif font-bold text-base text-[#4A3B3E]">Anniversary Ticker</h4>
-          <p className="text-xs text-[#8C7A7D] mt-1 font-sans">Celebration & confetti milestones.</p>
+          <h4 className="font-serif font-bold text-base text-[#4A3B3E]">纪念日倒计时</h4>
+          <p className="text-xs text-[#8C7A7D] mt-1 font-sans">庆祝与彩带里程碑。</p>
         </NavLink>
       </div>
 

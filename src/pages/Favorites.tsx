@@ -90,13 +90,13 @@ export const Favorites: React.FC = () => {
   };
 
   const categories = [
-    { id: 'all', label: 'All Favorites', icon: Star },
-    { id: 'movies', label: 'Movies & Shows', icon: Film },
-    { id: 'songs', label: 'Songs', icon: Music },
-    { id: 'foods', label: 'Foods & Dishes', icon: Utensils },
-    { id: 'places', label: 'Places & Spot', icon: MapPin },
-    { id: 'dreams', label: 'Dreams & Bucketlist', icon: Compass },
-    { id: 'goals', label: 'Future Goals', icon: Target }
+    { id: 'all', label: '全部收藏', icon: Star },
+    { id: 'movies', label: '电影与剧集', icon: Film },
+    { id: 'songs', label: '歌曲', icon: Music },
+    { id: 'foods', label: '美食与菜品', icon: Utensils },
+    { id: 'places', label: '地点与景点', icon: MapPin },
+    { id: 'dreams', label: '梦想与愿望清单', icon: Compass },
+    { id: 'goals', label: '未来目标', icon: Target }
   ];
 
   const filtered = favorites.filter((f) => {
@@ -112,13 +112,13 @@ export const Favorites: React.FC = () => {
         <div>
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-rose-100 text-rose-600 text-xs font-semibold mb-2">
             <Star className="w-3.5 h-3.5" />
-            <span>Shared Favorites</span>
+            <span>共同收藏</span>
           </div>
           <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-slate-800">
-            Favorites Collection
+            收藏合集
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Our favorite movies, comfort foods, dream vacations, and shared goals.
+            我们最爱的电影、治愈食物、梦想假期和共同目标。
           </p>
         </div>
 
@@ -127,7 +127,7 @@ export const Favorites: React.FC = () => {
           className="inline-flex items-center space-x-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-xs shadow-lg shadow-rose-200 hover:scale-105 transition-all"
         >
           <Plus className="w-4 h-4" />
-          <span>Add Favorite Item</span>
+          <span>添加收藏项</span>
         </button>
       </div>
 
@@ -192,7 +192,7 @@ export const Favorites: React.FC = () => {
                   {linkedMemory && (
                     <div className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-lg bg-pink-50 text-pink-700 text-[11px] font-semibold mt-2">
                       <Sparkles className="w-3 h-3 text-rose-500" />
-                      <span>Linked Memory: {linkedMemory.title}</span>
+                      <span>关联回忆：{linkedMemory.title}</span>
                     </div>
                   )}
                 </div>
@@ -200,20 +200,20 @@ export const Favorites: React.FC = () => {
                 <div className="pt-2 border-t border-rose-100 flex items-center justify-between text-xs text-slate-400">
                   <span className="flex items-center space-x-1 text-rose-500">
                     <Heart className="w-3 h-3 fill-current" />
-                    <span>Loved by Both</span>
+                    <span>两人都喜欢</span>
                   </span>
                   <div className="flex items-center space-x-1">
                     <button
                       onClick={() => openEditModal(item)}
                       className="p-1 rounded-lg hover:bg-rose-50 text-slate-400 hover:text-rose-600"
-                      title="Edit Item"
+                      title="编辑项目"
                     >
                       <Edit2 className="w-4 h-4" />
                     </button>
                     <button
                       onClick={() => handleDelete(item.id)}
                       className="p-1 rounded-lg hover:bg-rose-50 text-slate-400 hover:text-rose-600"
-                      title="Delete Item"
+                      title="删除项目"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -228,8 +228,8 @@ export const Favorites: React.FC = () => {
       {filtered.length === 0 && (
         <div className="text-center py-16 glass-card rounded-3xl p-8 border border-rose-100 max-w-xl mx-auto">
           <Sparkles className="w-10 h-10 text-rose-400 mx-auto mb-3" />
-          <h4 className="font-serif font-bold text-lg text-slate-800">No favorites in this category</h4>
-          <p className="text-xs text-slate-500 mt-1">Add your favorite movies, foods, and goals together!</p>
+          <h4 className="font-serif font-bold text-lg text-slate-800">这个分类下还没有收藏</h4>
+          <p className="text-xs text-slate-500 mt-1">一起添加你们最爱的电影、美食和目标吧！</p>
         </div>
       )}
 
@@ -244,7 +244,7 @@ export const Favorites: React.FC = () => {
             <div className="p-4 sm:p-5 border-b border-rose-100 flex items-center justify-between shrink-0 bg-white">
               <h3 className="font-serif font-bold text-lg sm:text-xl text-slate-800 flex items-center space-x-2">
                 <Star className="w-5 h-5 text-rose-500" />
-                <span>{editingItem ? 'Edit Favorite Item' : 'Add Favorite Item'}</span>
+                <span>{editingItem ? '编辑收藏项' : '添加收藏项'}</span>
               </h3>
               <button
                 type="button"
@@ -265,35 +265,35 @@ export const Favorites: React.FC = () => {
                       onChange={(e) => setCategory(e.target.value as any)}
                       className="w-full px-3 py-2.5 rounded-xl border border-rose-200 text-xs sm:text-sm outline-none bg-white"
                     >
-                      <option value="movies">Movies & Shows</option>
-                      <option value="songs">Songs</option>
-                      <option value="foods">Foods & Dishes</option>
-                      <option value="places">Places & Spots</option>
-                      <option value="dreams">Dreams & Bucketlist</option>
-                      <option value="goals">Future Goals</option>
+                      <option value="movies">电影与剧集</option>
+                      <option value="songs">歌曲</option>
+                      <option value="foods">美食与菜品</option>
+                      <option value="places">地点与景点</option>
+                      <option value="dreams">梦想与愿望清单</option>
+                      <option value="goals">未来目标</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">Rating (Stars)</label>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">评分（星级）</label>
                     <select
                       value={rating}
                       onChange={(e) => setRating(Number(e.target.value))}
                       className="w-full px-3 py-2.5 rounded-xl border border-rose-200 text-xs sm:text-sm outline-none bg-white"
                     >
-                      <option value={5}>⭐⭐⭐⭐⭐ (5 Stars)</option>
-                      <option value={4}>⭐⭐⭐⭐ (4 Stars)</option>
-                      <option value={3}>⭐⭐⭐ (3 Stars)</option>
+                      <option value={5}>⭐⭐⭐⭐⭐ （5 星）</option>
+                      <option value={4}>⭐⭐⭐⭐ （4 星）</option>
+                      <option value={3}>⭐⭐⭐ （3 星）</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">Item Title</label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">项目标题</label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. About Time (Movie)"
+                    placeholder="例如：《时空恋旅人》（电影）"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     className="w-full px-4 py-2.5 rounded-xl border border-rose-200 focus:border-rose-400 text-xs sm:text-sm outline-none bg-white"
@@ -301,10 +301,10 @@ export const Favorites: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">Why We Love It</label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">我们为什么喜欢它</label>
                   <textarea
                     rows={3}
-                    placeholder="Tell why this holds a special place in our hearts..."
+                    placeholder="说说它为什么在我们心里占有特殊的位置…"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     className="w-full px-4 py-2.5 rounded-xl border border-rose-200 focus:border-rose-400 text-xs sm:text-sm outline-none bg-white"
@@ -313,13 +313,13 @@ export const Favorites: React.FC = () => {
 
                 {memories.length > 0 && (
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">Link to Memory (Optional)</label>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">链接到回忆（可选）</label>
                     <select
                       value={memoryId}
                       onChange={(e) => setMemoryId(e.target.value)}
                       className="w-full px-3 py-2.5 rounded-xl border border-rose-200 text-xs sm:text-sm outline-none bg-white"
                     >
-                      <option value="">None (General Favorite)</option>
+                      <option value="">无（通用收藏）</option>
                       {memories.map((m) => (
                         <option key={m.id} value={m.id}>
                           ✨ {m.title} ({m.date})
@@ -331,7 +331,7 @@ export const Favorites: React.FC = () => {
 
                 <MediaUploader
                   bucket="photos"
-                  label="Optional Cover Photo (Photos Bucket)"
+                  label="可选封面照片（照片库）"
                   accept="image/*"
                   onUploadSuccess={(url) => setImageUrl(url)}
                 />
@@ -356,7 +356,7 @@ export const Favorites: React.FC = () => {
                   disabled={!title}
                   className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-xs shadow-md disabled:opacity-50 hover:scale-105 transition-all"
                 >
-                  {editingItem ? 'Update Favorite' : 'Save Favorite'}
+                  {editingItem ? '更新收藏' : '保存收藏'}
                 </button>
               </div>
             </form>

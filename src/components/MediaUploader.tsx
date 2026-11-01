@@ -18,7 +18,7 @@ export const MediaUploader: React.FC<MediaUploaderProps> = ({
   onUploadSuccess,
   onChange,
   value = '',
-  label = 'Unggah Foto / Media',
+  label = '上传照片 / 媒体',
   type = 'image'
 }) => {
   const [uploadMode, setUploadMode] = useState<'file' | 'url'>('file');
@@ -50,11 +50,11 @@ export const MediaUploader: React.FC<MediaUploaderProps> = ({
         setProgress(pct);
       });
 
-      setSuccessMsg(`Berhasil mengunggah ${file.name}`);
+      setSuccessMsg(`成功上传 ${file.name}`);
       notifyChange(publicUrl);
     } catch (err: any) {
       console.error('File upload failed:', err);
-      setErrorMsg(err.message || 'Gagal mengunggah file. Silakan periksa format file.');
+      setErrorMsg(err.message || '上传文件失败，请检查文件格式。');
     } finally {
       setIsUploading(false);
     }
@@ -93,7 +93,7 @@ export const MediaUploader: React.FC<MediaUploaderProps> = ({
               uploadMode === 'file' ? 'bg-white text-rose-600 shadow-2xs font-bold' : 'text-slate-500'
             }`}
           >
-            Unggah File
+            上传文件
           </button>
           <button
             type="button"
@@ -102,7 +102,7 @@ export const MediaUploader: React.FC<MediaUploaderProps> = ({
               uploadMode === 'url' ? 'bg-white text-rose-600 shadow-2xs font-bold' : 'text-slate-500'
             }`}
           >
-            URL Gambar
+            图片链接
           </button>
         </div>
       </div>
@@ -127,7 +127,7 @@ export const MediaUploader: React.FC<MediaUploaderProps> = ({
             )}
 
             <div className="text-xs font-medium text-slate-700">
-              {isUploading ? 'Mengunggah file...' : 'Klik atau seret foto ke sini untuk mengunggah'}
+              {isUploading ? '正在上传文件…' : '点击或拖拽照片到这里上传'}
             </div>
             <p className="text-[10px] text-slate-400">
               Format: PNG, JPG, WEBP, GIF
@@ -189,7 +189,7 @@ export const MediaUploader: React.FC<MediaUploaderProps> = ({
             <div className="text-xs truncate">
               <p className="font-bold text-slate-800 flex items-center space-x-1">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-                <span>Foto Terpasang</span>
+                <span>已添加照片</span>
               </p>
               <p className="text-[10px] text-slate-400 truncate max-w-50">{value}</p>
             </div>
@@ -199,7 +199,7 @@ export const MediaUploader: React.FC<MediaUploaderProps> = ({
             type="button"
             onClick={handleClear}
             className="p-1.5 rounded-full hover:bg-rose-50 text-slate-400 hover:text-rose-600 transition-colors shrink-0"
-            title="Hapus foto"
+            title="删除照片"
           >
             <X className="w-4 h-4" />
           </button>

@@ -29,10 +29,10 @@ export const Footer: React.FC = () => {
             </div>
             <div>
               <h3 className="font-serif font-bold text-lg text-[#4A3B3E]">
-                {settings.partner1_name} & {settings.partner2_name}'s Universe
+                {settings.partner1_name} & {settings.partner2_name}的宇宙
               </h3>
               <p className="text-xs text-[#DB2777] italic mt-0.5 font-serif">
-                "In all the world, there is no heart for me like yours."
+                "纵观世界，没有一颗心能像你的一样。"
               </p>
             </div>
           </div>
@@ -42,10 +42,10 @@ export const Footer: React.FC = () => {
             <Sparkles className="w-5 h-5 text-[#DB2777]" />
             <div className="text-left">
               <div className="text-lg font-bold font-serif text-[#DB2777] leading-tight">
-                {daysTogether} Days
+                {daysTogether} 天
               </div>
               <div className="text-[10px] text-[#4A3B3E] opacity-60 uppercase tracking-[0.2em] font-sans font-bold">
-                Of Loving Each Other
+                相爱的日子
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
           {/* Copyright note */}
           <div className="flex flex-col items-center md:items-end text-xs text-[#4A3B3E] space-y-1">
             <p className="text-[11px] text-[#8C7A7D]">
-              Made with endless love for {settings.partner1_name} & {settings.partner2_name}
+              满怀无尽的爱，送给 {settings.partner1_name} & {settings.partner2_name}
             </p>
           </div>
 

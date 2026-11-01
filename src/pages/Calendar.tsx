@@ -52,8 +52,8 @@ export const CalendarPage: React.FC = () => {
   const [formDescription, setFormDescription] = useState('');
   const [formCategory, setFormCategory] = useState<any>('daily');
   const [formMood, setFormMood] = useState<any>('love');
-  const [formSender, setFormSender] = useState('Sabrian');
-  const [formReceiver, setFormReceiver] = useState('Anisa');
+  const [formSender, setFormSender] = useState('杨家郡');
+  const [formReceiver, setFormReceiver] = useState('崔雁茹');
   const [formPhotoUrl, setFormPhotoUrl] = useState('');
   const [formVideoUrl, setFormVideoUrl] = useState('');
   const [formLocation, setFormLocation] = useState('');
@@ -117,13 +117,13 @@ export const CalendarPage: React.FC = () => {
       photo_url: j.photo_url,
       video_url: j.video_url,
       categoryOrMood: j.mood || 'love',
-      authorOrSender: j.author || 'Love',
+      authorOrSender: j.author || '我们',
       raw: j
     })),
     ...notes.map((n) => ({
       id: n.id,
       type: 'note' as const,
-      title: `Love Note from ${n.sender}`,
+      title: `来自 ${n.sender} 的爱的便签`,
       date: formatDateToKey(n.created_at),
       description: n.message,
       photo_url: n.attachment_url,
@@ -145,22 +145,22 @@ export const CalendarPage: React.FC = () => {
   };
 
   const monthNames = [
-    'August', 'September', 'October', 'November', 'December',
-    'January', 'February', 'March', 'April', 'May', 'June', 'July'
+    '八月', '九月', '十月', '十一月', '十二月',
+    '一月', '二月', '三月', '四月', '五月', '六月', '七月'
   ];
 
   // English month names matching the screenshot style
   const monthNamesEn = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
+    '一月', '二月', '三月', '四月', '五月', '六月',
+    '七月', '八月', '九月', '十月', '十一月', '十二月'
   ];
 
   const monthNamesId = [
-    'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-    'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+    '一月', '二月', '三月', '四月', '五月', '六月',
+    '七月', '八月', '九月', '十月', '十一月', '十二月'
   ];
 
-  const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const dayNames = ['日', '一', '二', '三', '四', '五', '六'];
 
   // Map events by date
   const eventsByDate = allEvents.reduce<Record<string, CalendarEvent[]>>((acc, evt) => {
@@ -311,10 +311,10 @@ export const CalendarPage: React.FC = () => {
       {/* Clean Minimalist Header */}
       <div className="text-center space-y-2">
         <h1 className="font-serif font-bold text-3xl sm:text-4xl text-[#2D2426] tracking-tight">
-          Kalender Kenangan
+          回忆日历
         </h1>
         <p className="text-xs sm:text-sm text-[#4A3B3E]/70 max-w-md mx-auto">
-          Pilih tanggal untuk melihat dan menambahkan momen manis kita.
+          选择日期，查看并添加我们的甜蜜时刻。
         </p>
       </div>
 
@@ -333,14 +333,14 @@ export const CalendarPage: React.FC = () => {
               <button
                 onClick={prevMonth}
                 className="p-1.5 rounded-full hover:bg-pink-50 text-[#DB2777] transition-colors"
-                aria-label="Previous Month"
+                aria-label="上个月"
               >
                 <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
               </button>
               <button
                 onClick={nextMonth}
                 className="p-1.5 rounded-full hover:bg-pink-50 text-[#DB2777] transition-colors"
-                aria-label="Next Month"
+                aria-label="下个月"
               >
                 <ChevronRight className="w-5 h-5 stroke-[2.5]" />
               </button>
@@ -404,7 +404,7 @@ export const CalendarPage: React.FC = () => {
           <div className="flex items-center justify-between pb-4 border-b border-[#FDE2E8]">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-[#DB2777]">
-                Tanggal Terpilih
+                选定日期
               </span>
               <h3 className="font-serif font-bold text-xl text-[#2D2426]">
                 {formatDisplayDate(selectedDateStr)}
@@ -416,17 +416,17 @@ export const CalendarPage: React.FC = () => {
               className="px-4 py-2 rounded-full bg-[#DB2777] hover:bg-pink-700 text-white text-xs font-bold flex items-center space-x-1.5 shadow-sm transition-all"
             >
               <Plus className="w-4 h-4" />
-              <span>Tambah</span>
+              <span>添加</span>
             </button>
           </div>
 
           {/* Filter Categories */}
           <div className="flex items-center space-x-1.5 overflow-x-auto pb-1 scrollbar-none">
             {[
-              { id: 'all', label: 'Semua' },
-              { id: 'memory', label: 'Memory' },
-              { id: 'journal', label: 'Jurnal' },
-              { id: 'note', label: 'Love Note' }
+              { id: 'all', label: '全部' },
+              { id: 'memory', label: '回忆' },
+              { id: 'journal', label: '日记' },
+              { id: 'note', label: '爱的便签' }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -445,19 +445,19 @@ export const CalendarPage: React.FC = () => {
           {/* Event Cards */}
           <div className="space-y-3.5 max-h-[420px] overflow-y-auto pr-1">
             {loading ? (
-              <div className="text-center py-10 text-slate-400 text-xs">Memuat data...</div>
+              <div className="text-center py-10 text-slate-400 text-xs">正在加载数据…</div>
             ) : selectedDateEvents.length === 0 ? (
               <div className="text-center py-12 px-4 rounded-2xl bg-pink-50/50 border border-dashed border-pink-200 space-y-3">
                 <Sparkles className="w-8 h-8 text-pink-300 mx-auto" />
                 <p className="text-xs text-slate-600 font-medium">
-                  Belum ada momen atau catatan pada tanggal ini.
+                  这一天还没有时刻或记录。
                 </p>
                 <button
                   onClick={() => setIsModalOpen(true)}
                   className="px-4 py-2 rounded-full bg-pink-100 text-[#DB2777] hover:bg-pink-200 text-xs font-bold inline-flex items-center space-x-1.5 transition-all"
                 >
                   <Plus className="w-4 h-4" />
-                  <span>Catat Momen</span>
+                  <span>记录时刻</span>
                 </button>
               </div>
             ) : (
@@ -484,7 +484,7 @@ export const CalendarPage: React.FC = () => {
                     <button
                       onClick={() => handleDeleteEvent(evt)}
                       className="p-1.5 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 opacity-0 group-hover:opacity-100 transition-all"
-                      title="Hapus data ini"
+                      title="删除这条数据"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -539,16 +539,16 @@ export const CalendarPage: React.FC = () => {
                 {formatDisplayDate(selectedDateStr)}
               </span>
               <h3 className="font-serif font-bold text-2xl text-[#2D2426]">
-                Tambah Catatan / Momen
+                添加记录 / 时刻
               </h3>
             </div>
 
             {/* Type Selector */}
             <div className="grid grid-cols-3 gap-2">
               {[
-                { id: 'memory', label: 'Memory', icon: Heart },
-                { id: 'journal', label: 'Jurnal', icon: BookOpen },
-                { id: 'note', label: 'Love Note', icon: FileText }
+                { id: 'memory', label: '回忆', icon: Heart },
+                { id: 'journal', label: '日记', icon: BookOpen },
+                { id: 'note', label: '爱的便签', icon: FileText }
               ].map((item) => {
                 const Icon = item.icon;
                 const isSelected = addType === item.id;
@@ -572,41 +572,41 @@ export const CalendarPage: React.FC = () => {
 
             <form onSubmit={handleCreateSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Judul / Subjek</label>
+                <label className="block text-xs font-bold text-slate-700 mb-1">标题 / 主题</label>
                 <input
                   type="text"
                   required
                   value={formTitle}
                   onChange={(e) => setFormTitle(e.target.value)}
-                  placeholder="e.g. Kencan pertama di taman..."
+                  placeholder="例如：公园里的第一次约会…"
                   className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#DB2777] text-xs"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Deskripsi / Pesan</label>
+                <label className="block text-xs font-bold text-slate-700 mb-1">描述 / 留言</label>
                 <textarea
                   rows={3}
                   value={formDescription}
                   onChange={(e) => setFormDescription(e.target.value)}
-                  placeholder="Tuliskan cerita atau kesan manis..."
+                  placeholder="写下甜蜜的故事或感受…"
                   className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#DB2777] text-xs resize-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Lokasi / Pengirim</label>
+                <label className="block text-xs font-bold text-slate-700 mb-1">地点 / 发送人</label>
                 <input
                   type="text"
                   value={formLocation}
                   onChange={(e) => setFormLocation(e.target.value)}
-                  placeholder="e.g. Jakarta, Cafe Kenangan"
+                  placeholder="例如：北京，回忆咖啡馆"
                   className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#DB2777] text-xs"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Upload Foto Media</label>
+                <label className="block text-xs font-bold text-slate-700 mb-1">上传照片媒体</label>
                 <MediaUploader
                   type="image"
                   onUploadComplete={(url) => setFormPhotoUrl(url)}
@@ -625,7 +625,7 @@ export const CalendarPage: React.FC = () => {
                   type="submit"
                   className="px-6 py-2.5 rounded-full bg-[#DB2777] hover:bg-pink-700 text-white text-xs font-bold shadow-md shadow-pink-200"
                 >
-                  Simpan Data
+                  保存
                 </button>
               </div>
             </form>

@@ -115,12 +115,12 @@ export const Timeline: React.FC = () => {
   });
 
   const categories = [
-    { id: 'all', label: 'All Memories' },
-    { id: 'first_date', label: 'First Dates' },
-    { id: 'travel', label: 'Trips & Travel' },
-    { id: 'anniversary', label: 'Anniversaries' },
-    { id: 'celebration', label: 'Celebrations' },
-    { id: 'daily', label: 'Daily Life' }
+    { id: 'all', label: '全部回忆' },
+    { id: 'first_date', label: '第一次约会' },
+    { id: 'travel', label: '旅行' },
+    { id: 'anniversary', label: '纪念日' },
+    { id: 'celebration', label: '庆祝' },
+    { id: 'daily', label: '日常生活' }
   ];
 
   const getCategoryIcon = (cat?: string) => {
@@ -148,13 +148,13 @@ export const Timeline: React.FC = () => {
         <div>
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#FFE4E9] text-[#DB2777] text-xs font-sans font-bold mb-2 border border-[#FDE2E8]">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Interactive Couple Journal</span>
+            <span>互动情侣日记</span>
           </div>
           <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-[#4A3B3E]">
-            Our Love Timeline
+            我们的爱情时间线
           </h1>
           <p className="text-xs sm:text-sm text-[#8C7A7D] mt-1 font-sans">
-            Every step, smile, and sunset we have shared along the way.
+            一路走来，我们共同走过的每一步、每一个微笑、每一次日落。
           </p>
         </div>
 
@@ -163,7 +163,7 @@ export const Timeline: React.FC = () => {
           className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-[#DB2777] text-white font-sans font-bold text-xs uppercase tracking-widest shadow-lg shadow-pink-200 hover:scale-105 transition-all cursor-pointer"
         >
           <Plus className="w-4 h-4" />
-          <span>Add New Memory</span>
+          <span>添加新回忆</span>
         </button>
       </div>
 
@@ -224,7 +224,7 @@ export const Timeline: React.FC = () => {
                       {/* Top Header: Tag + Date */}
                       <div className="flex items-center justify-between border-b border-pink-50 pb-3">
                         <span className="px-3 py-1 rounded-full bg-pink-100/80 text-pink-600 text-[11px] font-sans font-bold uppercase tracking-wider">
-                          {m.category ? m.category.replace('_', ' ') : 'MEMORY'}
+                          {({ first_date: '第一次约会', travel: '旅行', anniversary: '纪念日', celebration: '庆祝', daily: '日常生活' } as Record<string, string>)[m.category] || '回忆'}
                         </span>
                         
                         <div className="flex items-center space-x-1.5 text-slate-500 text-xs font-sans font-medium">
@@ -274,7 +274,7 @@ export const Timeline: React.FC = () => {
                       {linkedSong && (
                         <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-xl bg-pink-50/80 border border-pink-200 text-pink-700 text-xs font-semibold">
                           <Music className="w-3.5 h-3.5 text-rose-500 animate-pulse" />
-                          <span>Theme: {linkedSong.title} — {linkedSong.artist}</span>
+                          <span>主题曲：{linkedSong.title} — {linkedSong.artist}</span>
                         </div>
                       )}
 
@@ -290,14 +290,14 @@ export const Timeline: React.FC = () => {
                             className="flex items-center space-x-1 text-pink-500 hover:text-pink-700 font-sans font-bold transition-colors cursor-pointer"
                           >
                             <Pencil className="w-3.5 h-3.5" />
-                            <span>Edit</span>
+                            <span>编辑</span>
                           </button>
                           <button
                             onClick={() => handleDelete(m.id)}
                             className="flex items-center space-x-1 text-rose-400 hover:text-rose-600 font-sans font-bold transition-colors cursor-pointer"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
-                            <span>Remove</span>
+                            <span>删除</span>
                           </button>
                         </div>
                       </div>
@@ -312,8 +312,8 @@ export const Timeline: React.FC = () => {
           {filteredMemories.length === 0 && !loading && (
             <div className="text-center py-12 bg-white rounded-3xl p-8 border border-pink-100 max-w-md mx-auto shadow-xs">
               <Sparkles className="w-10 h-10 text-pink-400 mx-auto mb-3" />
-              <h4 className="font-serif font-bold text-lg text-slate-800">No Memories in this category yet</h4>
-              <p className="text-xs text-slate-500 mt-1">Click "Add New Memory" above to write our story!</p>
+              <h4 className="font-serif font-bold text-lg text-slate-800">这个分类下还没有回忆</h4>
+              <p className="text-xs text-slate-500 mt-1">点击上方“添加新回忆”来写下我们的故事！</p>
             </div>
           )}
         </div>
@@ -330,7 +330,7 @@ export const Timeline: React.FC = () => {
             <div className="p-4 sm:p-5 border-b border-pink-100 flex items-center justify-between shrink-0 bg-white">
               <h3 className="font-serif font-bold text-lg sm:text-xl text-slate-800 flex items-center space-x-2">
                 <Sparkles className="w-5 h-5 text-pink-500" />
-                <span>{editingMemory ? 'Edit Memory' : 'Add New Memory'}</span>
+                <span>{editingMemory ? '编辑回忆' : '添加新回忆'}</span>
               </h3>
               <button
                 type="button"
@@ -344,11 +344,11 @@ export const Timeline: React.FC = () => {
             <form onSubmit={handleSaveMemory} className="flex flex-col overflow-hidden flex-1">
               <div className="p-4 sm:p-6 space-y-4 overflow-y-auto flex-1">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">Memory Title</label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">回忆标题</label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Stargazing at Whispering Cliffs"
+                    placeholder="例如：在低语悬崖观星"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     className="w-full px-4 py-2.5 rounded-xl border border-pink-200 focus:border-pink-400 text-xs sm:text-sm outline-none bg-white"
@@ -374,11 +374,11 @@ export const Timeline: React.FC = () => {
                       onChange={(e) => setCategory(e.target.value as any)}
                       className="w-full px-4 py-2.5 rounded-xl border border-pink-200 focus:border-pink-400 text-xs sm:text-sm outline-none bg-white"
                     >
-                      <option value="first_date">First Date</option>
-                      <option value="travel">Travel & Trip</option>
-                      <option value="anniversary">Anniversary</option>
-                      <option value="celebration">Celebration</option>
-                      <option value="daily">Daily Life</option>
+                      <option value="first_date">第一次约会</option>
+                      <option value="travel">旅行</option>
+                      <option value="anniversary">纪念日</option>
+                      <option value="celebration">庆祝</option>
+                      <option value="daily">日常生活</option>
                     </select>
                   </div>
                 </div>
@@ -387,7 +387,7 @@ export const Timeline: React.FC = () => {
                   <label className="block text-xs font-semibold text-slate-700 mb-1">Location</label>
                   <input
                     type="text"
-                    placeholder="e.g. Rosewood Botanical Garden"
+                    placeholder="例如：玫瑰木植物园"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     className="w-full px-4 py-2.5 rounded-xl border border-pink-200 focus:border-pink-400 text-xs sm:text-sm outline-none bg-white"
@@ -396,13 +396,13 @@ export const Timeline: React.FC = () => {
 
                 {songs.length > 0 && (
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">Link Special Song</label>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">链接特别歌曲</label>
                     <select
                       value={songId}
                       onChange={(e) => setSongId(e.target.value)}
                       className="w-full px-4 py-2.5 rounded-xl border border-pink-200 focus:border-pink-400 text-xs sm:text-sm outline-none bg-white"
                     >
-                      <option value="">None (No song linked)</option>
+                      <option value="">无（未链接歌曲）</option>
                       {songs.map((s) => (
                         <option key={s.id} value={s.id}>
                           🎵 {s.title} — {s.artist}
@@ -413,10 +413,10 @@ export const Timeline: React.FC = () => {
                 )}
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">Memory Story</label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">回忆故事</label>
                   <textarea
                     rows={3}
-                    placeholder="Describe how magical this moment was..."
+                    placeholder="描述这一刻有多神奇…"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     className="w-full px-4 py-2.5 rounded-xl border border-pink-200 focus:border-pink-400 text-xs sm:text-sm outline-none bg-white"
@@ -426,7 +426,7 @@ export const Timeline: React.FC = () => {
                 {/* Photo Upload */}
                 <MediaUploader
                   bucket="photos"
-                  label="Attach Memory Photo (Photos Bucket)"
+                  label="附上回忆照片（照片库）"
                   accept="image/*"
                   onUploadSuccess={(url) => setPhotoUrl(url)}
                 />
@@ -450,7 +450,7 @@ export const Timeline: React.FC = () => {
                   type="submit"
                   className="px-6 py-2.5 rounded-xl bg-linear-to-r from-pink-500 to-rose-500 text-white font-bold text-xs shadow-md hover:scale-105 transition-all cursor-pointer"
                 >
-                  {editingMemory ? 'Update Memory' : 'Save Memory'}
+                  {editingMemory ? '更新回忆' : '保存回忆'}
                 </button>
               </div>
             </form>

@@ -53,7 +53,7 @@ export const Letter: React.FC = () => {
 
   const openCreateModal = () => {
     setEditingLetter(null);
-    setTitle('Letter For My Darling');
+    setTitle('给亲爱的的信');
     setSender(settings.partner1_name);
     setReceiver(settings.partner2_name);
     setDate(new Date().toISOString().split('T')[0]);
@@ -103,7 +103,7 @@ export const Letter: React.FC = () => {
   };
 
   const handleDelete = async (id: string) => {
-    if (window.confirm('Apakah kamu yakin ingin menghapus surat cinta ini?')) {
+    if (window.confirm('你确定要删除这封情书吗？')) {
       await dataService.deleteLetter(id);
       setIsOpen(false);
       const updated = letters.filter((l) => l.id !== id);
@@ -138,13 +138,13 @@ export const Letter: React.FC = () => {
         <div>
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-pink-100/80 text-pink-700 text-xs font-sans font-bold mb-2 border border-pink-200 shadow-xs">
             <Mail className="w-3.5 h-3.5 text-pink-600" />
-            <span>Interactive Pink Love Envelope</span>
+            <span>互动粉色爱情信封</span>
           </div>
           <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-[#4A3B3E]">
-            A Love Letter For You
+            给你的情书
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Kumpulan surat cinta romantis beramplop pink dengan tampilan tulisan tangan yang manis.
+            粉色信封的浪漫情书合集，配有甜美的手写风格。
           </p>
         </div>
 
@@ -153,7 +153,7 @@ export const Letter: React.FC = () => {
           className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white font-sans font-bold text-xs uppercase tracking-widest shadow-lg shadow-pink-200 hover:scale-105 active:scale-95 transition-all cursor-pointer self-start md:self-auto"
         >
           <Plus className="w-4 h-4" />
-          <span>Tulis Surat Baru</span>
+          <span>写新情书</span>
         </button>
       </div>
 
@@ -170,7 +170,7 @@ export const Letter: React.FC = () => {
                   setIsOpen(false);
                 }}
                 className="p-2 rounded-full bg-white border border-pink-200 text-pink-600 hover:bg-pink-50 shadow-xs cursor-pointer transition-transform active:scale-90"
-                title="Surat Sebelumnya"
+                title="上一封信"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -200,7 +200,7 @@ export const Letter: React.FC = () => {
                   setIsOpen(false);
                 }}
                 className="p-2 rounded-full bg-white border border-pink-200 text-pink-600 hover:bg-pink-50 shadow-xs cursor-pointer transition-transform active:scale-90"
-                title="Surat Selanjutnya"
+                title="下一封信"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -247,12 +247,12 @@ export const Letter: React.FC = () => {
                   {/* Envelope Text Content */}
                   <div className="z-10 mt-16 text-center space-y-3">
                     <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-[#4A2038] tracking-tight">
-                      {currentLetter.title || `To ${currentLetter.receiver || 'MyLove'}`}
+                      {currentLetter.title || `致 ${currentLetter.receiver || '亲爱的'}`}
                     </h2>
 
                     <div>
                       <span className="inline-flex items-center px-5 py-1.5 rounded-full bg-white text-[#DB2777] font-sans font-bold text-xs shadow-sm group-hover:bg-pink-50 transition-colors">
-                        Click to open 💌
+                        点击打开 💌
                       </span>
                     </div>
                   </div>
@@ -287,8 +287,8 @@ export const Letter: React.FC = () => {
                             ? 'bg-emerald-50 text-emerald-600 border-emerald-200'
                             : 'bg-white hover:bg-pink-50 text-pink-600 border-pink-200'
                         }`}
-                        title={copied ? "Tersalin!" : "Salin isi surat"}
-                        aria-label="Salin isi surat"
+                        title={copied ? "Tersalin!" : "复制信件内容"}
+                        aria-label="复制信件内容"
                       >
                         {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                       </button>
@@ -297,8 +297,8 @@ export const Letter: React.FC = () => {
                       <button
                         onClick={() => openEditModal(currentLetter)}
                         className="p-2 rounded-xl bg-white hover:bg-pink-50 text-pink-600 border border-pink-200 transition-all active:scale-90 shadow-2xs"
-                        title="Edit Surat"
-                        aria-label="Edit Surat"
+                        title="编辑情书"
+                        aria-label="编辑情书"
                       >
                         <Pencil className="w-4 h-4" />
                       </button>
@@ -307,8 +307,8 @@ export const Letter: React.FC = () => {
                       <button
                         onClick={() => handleDelete(currentLetter.id)}
                         className="p-2 rounded-xl bg-white hover:bg-rose-50 text-rose-600 border border-pink-200 transition-all active:scale-90 shadow-2xs"
-                        title="Hapus Surat"
-                        aria-label="Hapus Surat"
+                        title="删除情书"
+                        aria-label="删除情书"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -317,8 +317,8 @@ export const Letter: React.FC = () => {
                       <button
                         onClick={() => setIsOpen(false)}
                         className="p-2 rounded-xl bg-gradient-to-tr from-[#DB2777] to-rose-500 text-white shadow-md hover:scale-105 active:scale-90 transition-all"
-                        title="Lipat Amplop Kembali"
-                        aria-label="Lipat Amplop Kembali"
+                        title="重新封好信封"
+                        aria-label="重新封好信封"
                       >
                         <RotateCcw className="w-4 h-4" />
                       </button>
@@ -329,12 +329,12 @@ export const Letter: React.FC = () => {
                   <div className="pl-6 sm:pl-8 pr-1 space-y-3">
                     {/* Letter Title */}
                     <h1 className="font-serif font-extrabold text-2xl sm:text-3xl text-[#4A2038] tracking-tight leading-snug">
-                      {currentLetter.title || `To ${currentLetter.receiver || 'MyLove'}`}
+                      {currentLetter.title || `致 ${currentLetter.receiver || '亲爱的'}`}
                     </h1>
 
                     {/* Salutation Greeting */}
                     <div className="font-caveat italic text-2xl sm:text-3xl font-semibold text-rose-800">
-                      Untuk {currentLetter.receiver || 'Kamu yang Paling Spesial'},
+                      Untuk {currentLetter.receiver || '最特别的你'},
                     </div>
 
                     {/* Handwritten Content Lines */}
@@ -346,10 +346,10 @@ export const Letter: React.FC = () => {
                     <div className="mt-8 pt-4 border-t border-rose-200/80 flex flex-col items-end text-right space-y-1">
                       <div className="flex items-center space-x-1 text-rose-500 text-xs font-sans font-extrabold uppercase tracking-widest">
                         <Heart className="w-3.5 h-3.5 fill-rose-500" />
-                        <span>FOREVER & ALWAYS</span>
+                        <span>永远与一直</span>
                       </div>
                       <div className="font-serif font-extrabold text-xl sm:text-2xl text-[#4A2038]">
-                        {currentLetter.sender || settings.partner1_name || 'Rian'} & {currentLetter.receiver || settings.partner2_name || 'Anisa'} ❤️
+                        {currentLetter.sender || settings.partner1_name || '杨家郡'} & {currentLetter.receiver || settings.partner2_name || '崔雁茹'} ❤️
                       </div>
                     </div>
                   </div>
@@ -365,7 +365,7 @@ export const Letter: React.FC = () => {
         /* Empty State */
         <div className="text-center py-16 bg-white rounded-3xl p-8 border border-pink-100 max-w-md mx-auto shadow-xs space-y-4 my-auto">
           <Sparkles className="w-12 h-12 text-pink-400 mx-auto" />
-          <h3 className="font-serif font-bold text-xl text-slate-800">Belum Ada Surat Cinta</h3>
+          <h3 className="font-serif font-bold text-xl text-slate-800">还没有情书</h3>
           <p className="text-xs text-slate-500">
             Tuliskan kata-kata indah pertama untuk pasanganmu untuk memulai koleksi surat romantis.
           </p>
@@ -374,7 +374,7 @@ export const Letter: React.FC = () => {
             className="inline-flex items-center space-x-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white font-sans font-bold text-xs uppercase tracking-widest shadow-md shadow-pink-200 hover:scale-105 transition-all cursor-pointer"
           >
             <Plus className="w-4 h-4" />
-            <span>Tulis Surat Sekarang</span>
+            <span>现在写情书</span>
           </button>
         </div>
       )}
@@ -390,7 +390,7 @@ export const Letter: React.FC = () => {
             <div className="p-4 sm:p-5 border-b border-pink-100 flex items-center justify-between shrink-0 bg-white">
               <h3 className="font-serif font-bold text-lg sm:text-xl text-slate-800 flex items-center space-x-2">
                 <Heart className="w-5 h-5 text-pink-500 fill-pink-500" />
-                <span>{editingLetter ? 'Edit Surat Cinta' : 'Tulis Surat Cinta Baru'}</span>
+                <span>{editingLetter ? '编辑情书' : '写一封新情书'}</span>
               </h3>
               <button
                 type="button"
@@ -406,11 +406,11 @@ export const Letter: React.FC = () => {
                 
                 {/* Title */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Judul Surat</label>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">信件标题</label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Surat Cinta Untuk Pacar Tersayang"
+                    placeholder="例如：给最爱的你的情书"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     className="w-full px-4 py-2.5 rounded-xl border border-pink-200 focus:border-pink-400 text-xs sm:text-sm outline-none bg-white font-sans"
@@ -420,7 +420,7 @@ export const Letter: React.FC = () => {
                 {/* Sender & Receiver Row */}
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Pengirim (From)</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">寄件人</label>
                     <input
                       type="text"
                       required
@@ -430,7 +430,7 @@ export const Letter: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Penerima (To)</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">收件人</label>
                     <input
                       type="text"
                       required
@@ -444,7 +444,7 @@ export const Letter: React.FC = () => {
                 {/* Date & Seal Color */}
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Tanggal Surat</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">信件日期</label>
                     <input
                       type="date"
                       value={date}
@@ -453,28 +453,28 @@ export const Letter: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Warna Segel Lilin</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">火漆颜色</label>
                     <select
                       value={sealColor}
                       onChange={(e) => setSealColor(e.target.value as any)}
                       className="w-full px-4 py-2.5 rounded-xl border border-pink-200 focus:border-pink-400 text-xs sm:text-sm outline-none bg-white font-sans"
                     >
-                      <option value="rose">Rose Pink 🌹</option>
-                      <option value="pink">Sweet Pink 💖</option>
-                      <option value="purple">Royal Purple 💜</option>
-                      <option value="gold">Golden Luxe ✨</option>
-                      <option value="red">Passion Red ❤️</option>
+                      <option value="rose">玫瑰粉 🌹</option>
+                      <option value="pink">甜蜜粉 💖</option>
+                      <option value="purple">皇家紫 💜</option>
+                      <option value="gold">金色奢华 ✨</option>
+                      <option value="red">热情红 ❤️</option>
                     </select>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Isi Surat Cinta</label>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">情书内容</label>
                   <textarea
                     rows={8}
                     required
-                    placeholder="Tuliskan ungkapan perasaanmu yang paling jujur dan mendalam di sini..."
+                    placeholder="在这里写下你最真诚、最深切的感受…"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                     className="w-full p-4 rounded-xl border border-pink-200 focus:border-pink-400 text-lg sm:text-xl font-caveat text-slate-800 outline-none leading-relaxed bg-pink-50/20"
@@ -497,7 +497,7 @@ export const Letter: React.FC = () => {
                   className="px-6 py-2.5 rounded-xl bg-linear-to-r from-pink-500 to-rose-500 text-white font-bold text-xs shadow-md hover:scale-105 transition-all cursor-pointer flex items-center space-x-1.5"
                 >
                   <Check className="w-4 h-4" />
-                  <span>{editingLetter ? 'Simpan Perubahan' : 'Kirim / Simpan Surat'}</span>
+                  <span>{editingLetter ? '保存修改' : '发送 / 保存情书'}</span>
                 </button>
               </div>
             </form>

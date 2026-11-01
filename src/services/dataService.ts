@@ -23,7 +23,7 @@ const DEFAULT_SETTINGS: CoupleSettings = {
   relationship_start_date: "2023-05-20",
   hero_title: "sabrianisa",
   hero_subtitle:
-    "A sweet corner of the cosmos made entirely of our love, quiet laughs, and endless memories.",
+    "一个完全由我们的爱、安静的笑声和无尽回忆构成的宇宙角落。",
   bg_music_url:
     "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3",
   particle_type: "hearts",
@@ -112,8 +112,8 @@ export const dataService = {
 
           if (
             !res.hero_title ||
-            res.hero_title === "Our Little Universe" ||
-            res.hero_title === "Our Universe"
+            res.hero_title === "我们的小宇宙" ||
+            res.hero_title === "我们的宇宙"
           ) {
             res.hero_title = "sabrianisa";
           }

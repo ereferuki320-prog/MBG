@@ -40,14 +40,14 @@ export const Lightbox: React.FC<LightboxProps> = ({
             <button
               onClick={() => setZoom((z) => Math.min(z + 0.25, 2.5))}
               className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all"
-              title="Zoom In"
+              title="放大"
             >
               <ZoomIn className="w-5 h-5" />
             </button>
             <button
               onClick={() => setZoom((z) => Math.max(z - 0.25, 0.75))}
               className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all"
-              title="Zoom Out"
+              title="缩小"
             >
               <ZoomOut className="w-5 h-5" />
             </button>
@@ -56,7 +56,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
         <button
           onClick={onClose}
           className="p-2.5 rounded-full bg-white/10 hover:bg-rose-500 text-white transition-all"
-          title="Close Lightbox"
+          title="关闭图片查看器"
         >
           <X className="w-6 h-6" />
         </button>
@@ -67,7 +67,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
         <button
           onClick={onPrev}
           className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/25 text-white transition-all z-40"
-          title="Previous"
+          title="上一首"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
@@ -78,7 +78,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
         <button
           onClick={onNext}
           className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/25 text-white transition-all z-40"
-          title="Next"
+          title="下一首"
         >
           <ChevronRight className="w-6 h-6" />
         </button>
@@ -97,7 +97,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
           <div className="overflow-auto max-h-[75vh] max-w-full flex items-center justify-center">
             <img
               src={mediaUrl}
-              alt={title || 'Enlarged photo'}
+              alt={title || '放大的照片'}
               style={{ transform: `scale(${zoom})` }}
               className="max-h-[75vh] w-auto object-contain rounded-2xl shadow-2xl transition-transform duration-200"
             />

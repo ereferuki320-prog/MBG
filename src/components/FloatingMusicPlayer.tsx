@@ -84,14 +84,14 @@ export const FloatingMusicPlayer: React.FC = () => {
                 to="/music"
                 onClick={() => setIsExpanded(false)}
                 className="p-1.5 rounded-full hover:bg-rose-100/60 text-slate-500 hover:text-rose-600 transition-colors"
-                title="Full Playlist"
+                title="完整歌单"
               >
                 <ExternalLink className="w-4 h-4" />
               </NavLink>
               <button
                 onClick={() => setIsExpanded(false)}
                 className="p-1.5 rounded-full hover:bg-rose-100/60 text-slate-500 hover:text-rose-600 transition-colors"
-                title="Close player"
+                title="关闭播放器"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -180,7 +180,7 @@ export const FloatingMusicPlayer: React.FC = () => {
               <button
                 onClick={playPrev}
                 className="p-1.5 rounded-full text-slate-600 hover:text-rose-600 hover:bg-rose-100/50 transition-colors"
-                title="Previous"
+                title="上一首"
               >
                 <SkipBack className="w-4 h-4" />
               </button>
@@ -188,7 +188,7 @@ export const FloatingMusicPlayer: React.FC = () => {
               <button
                 onClick={togglePlay}
                 className="w-9 h-9 rounded-full bg-rose-500 hover:bg-rose-600 text-white flex items-center justify-center shadow-md shadow-rose-300 transition-all active:scale-95"
-                title={isPlaying ? 'Pause' : 'Play'}
+                title={isPlaying ? '暂停' : '播放'}
               >
                 {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
               </button>
@@ -196,7 +196,7 @@ export const FloatingMusicPlayer: React.FC = () => {
               <button
                 onClick={playNext}
                 className="p-1.5 rounded-full text-slate-600 hover:text-rose-600 hover:bg-rose-100/50 transition-colors"
-                title="Next"
+                title="下一首"
               >
                 <SkipForward className="w-4 h-4" />
               </button>
@@ -214,8 +214,8 @@ export const FloatingMusicPlayer: React.FC = () => {
             ? 'bg-gradient-to-tr from-[#DB2777] via-pink-600 to-rose-500 text-white shadow-pink-500/40 ring-4 ring-pink-300/40'
             : 'bg-white/95 text-[#DB2777] border-2 border-pink-200 shadow-rose-200/50 hover:bg-pink-50'
         }`}
-        title={isExpanded ? 'Tutup Pemutar Musik (Geser untuk memindahkan)' : 'Buka Pemutar Musik (Geser untuk memindahkan)'}
-        aria-label="Toggle Music Player"
+        title={isExpanded ? '关闭音乐播放器（拖动可移动）' : '打开音乐播放器（拖动可移动）'}
+        aria-label="切换音乐播放器"
       >
         {/* Animated Sound Wave Rings when playing */}
         {isPlaying && (

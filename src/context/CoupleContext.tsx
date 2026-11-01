@@ -23,14 +23,14 @@ const CoupleContext = createContext<CoupleContextType | undefined>(undefined);
 
 export const CoupleProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [settings, setSettings] = useState<CoupleSettings>({
-    partner1_name: 'Alex',
-    partner2_name: 'Emma',
+    partner1_name: '杨家郡',
+    partner2_name: '崔雁茹',
     partner1_avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400',
     partner2_avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400',
     cover_photo: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=1200',
     relationship_start_date: '2023-05-20',
-    hero_title: 'sabrianisa',
-    hero_subtitle: 'A sweet corner of the cosmos made entirely of our love, quiet laughs, and endless memories.',
+    hero_title: '我们的小宇宙',
+    hero_subtitle: '一个完全由我们的爱、安静的笑声和无尽回忆构成的宇宙角落。',
     bg_music_url: 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3',
     particle_type: 'hearts'
   });
